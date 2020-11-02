@@ -1,0 +1,20 @@
+<form [formGroup]="nameForm" (ngSubmit)="onSubmit(nameForm.value)">
+
+  <div>
+    <label>First Name:</label>
+    <input type="text" formControlName="firstName">
+  </div>
+
+  <div>
+    <label>Last Name:</label>
+    <input type="text" formControlName="lastName">
+  </div>
+
+  <div>
+    <re-captcha (resolved)="resolved($event)" siteKey="6Lf39t0ZAAAAAAb1983J7iLmQVhy13cEfzacD9ry"></re-captcha>
+
+    <p *ngIf="displayResponse">Successfully Submitted Your Response</p>
+    <input [disabled]="!captchaPassed" type="submit" name="Submit">
+  </div>
+
+</form>
